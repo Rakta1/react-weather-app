@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
 	function handleResponse(response) {
 		setWeatherData({
@@ -11,7 +12,7 @@ export default function Weather() {
 			humidity: response.data.main.humidity,
 			wind: response.data.wind.speed,
 			city: response.data.name,
-			date: "Sunday, 11:49",
+			date: new Date(response.data.dt * 1000),
 			description: response.data.weather[0].description,
 			iconUrl:
 				"https://assets.msn.com/weathermapdata/1/static/svg/72/v2/card_fix_partlysunny/RainShowersDayV2.svg",
@@ -19,8 +20,7 @@ export default function Weather() {
 	}
 	function search() {
 		const apiKey = "be6fdca8e2e91988e4c676b7fb94a33b";
-		let city = "New York";
-		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
 		Axios.get(apiUrl).then(handleResponse);
 	}
 
@@ -48,7 +48,7 @@ export default function Weather() {
 				</form>
 				<h1 className="text-capitalize">{weatherData.city}</h1>
 				<ul className="list-unstyled">
-					<li>{weatherData.date}</li>
+					<FormattedDate date={weatherData.date} />
 					<li className="text-capitalize ">{weatherData.description}</li>
 				</ul>
 				<div className="row">
@@ -65,7 +65,7 @@ export default function Weather() {
 					</div>
 					<div className="col-6">
 						<ul className="list-unstyled">
-							<li>Wind: {Math.round(weatherData.wind)} KM/H</li>
+							<li>Wind: {Math.round(weatherData.wind)} km/h</li>
 							<li>Humidity: {Math.round(weatherData.humidity)}%</li>
 						</ul>
 					</div>
