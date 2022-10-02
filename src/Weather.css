@@ -3,3 +3,18 @@
 	color: #878787;
 	max-width: 600px;
 }
+
+.temperature {
+	font-size: 50px;
+}
+
+.Weather img {
+	position: relative;
+	top: -16px;
+}
+
+.unit {
+	font-size: 15px;
+	position: relative;
+	top: -26px;
+}

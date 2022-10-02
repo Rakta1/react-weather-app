@@ -11,7 +11,7 @@ export default function Weather() {
 							type="search"
 							placeholder="Enter a city"
 							className="form-control"
-							autoFocus
+							autoFocus="on"
 						/>
 					</div>
 					<div className="col-3">
@@ -33,8 +33,10 @@ export default function Weather() {
 					<img
 						src="https://assets.msn.com/weathermapdata/1/static/svg/72/v2/card_fix_partlysunny/RainShowersDayV2.svg"
 						alt="Rain"
+						className="p-1"
 					></img>
-					59°F
+					<span className="temperature">59</span>
+					<span className="unit">°F</span>
 				</div>
 				<div className="col-6">
 					<ul className="list-unstyled">
