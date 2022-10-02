@@ -1,3 +1,4 @@
+import Weather from "./Weather";
 import "./App.css";
 
 function App() {
@@ -23,8 +24,18 @@ function App() {
 						</div>
 					</div>
 				</form>
-				<h1>New York</h1>
+				<Weather />
 			</div>
+			<footer>
+				<a
+					href="https://github.com/Rakta1/react-weather-app"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Open-Sourced
+				</a>
+				, by Terra Wardana
+			</footer>
 		</div>
 	);
 }
