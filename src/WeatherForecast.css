@@ -6,3 +6,12 @@
 	opacity: 0.5;
 	margin-left: 5px;
 }
+
+.WeatherForecast .WeatherForecast-Day {
+	font-size: 20px;
+}
+
+.WeatherForecast img {
+	margin-top: 10px;
+	margin-bottom: -10px;
+}
